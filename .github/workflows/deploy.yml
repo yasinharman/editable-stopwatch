@@ -1,0 +1,16 @@
+name: Deploy to Dokploy
+
+on:
+  push:
+    branches:
+      - main # Sadece main dalına kod atıldığında çalışır
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Trigger Dokploy Webhook
+        # GitHub, kasaya sakladığımız linki buradan gizlice çeker ve Dokploy'u tetikler
+        run: |
+          curl -X GET "${{ secrets.DOKPLOY_WEBHOOK_URL }}"
