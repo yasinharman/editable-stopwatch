@@ -50,7 +50,7 @@ function App() {
     // Bu kapsayicidaki class'lar sayfanin genel yerlesimini, arka planini ve yazi stilini degistirir.
     <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white font-sans">
       {/* Bu baslik metnini veya class'larini degistirirsen sayfanin ust basligi ve stili degisir. */}
-      <h1 className="text-4xl font-bold mb-12 text-blue-400">Kronometre</h1>
+      <h1 className="text-4xl font-bold mb-12 text-blue-400">Yasin Baba The Godfather</h1>
 
       {/* Buradaki class'lar saat alaninin boyutunu, bosluklarini ve fontunu belirler. */}
       <div className="flex gap-4 text-7xl font-mono mb-12">
