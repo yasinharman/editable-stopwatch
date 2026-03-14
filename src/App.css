@@ -1,11 +1,15 @@
+/* Bu dosya su an varsayilan Vite stillerini tutuyor; App.jsx icinde import edilirse buradaki degisiklikler gorunur. */
 #root {
+  /* max-width degerini buyutursen icerik daha genis bir alana yayilir. */
   max-width: 1280px;
+  /* margin ve padding, tum uygulamanin sayfa icindeki dis boslugunu degistirir. */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
 .logo {
+  /* Bu alan, varsa logo gorselinin boyut ve bosluk davranisini belirler. */
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -23,20 +27,24 @@
     transform: rotate(0deg);
   }
   to {
+    /* 360deg yerine farkli bir aci verirsen animasyonun donus davranisi degisir. */
     transform: rotate(360deg);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
+    /* 20s degerini dusurursen animasyon daha hizli, artirirsan daha yavas olur. */
     animation: logo-spin infinite 20s linear;
   }
 }
 
 .card {
+  /* Card yapisi kullanilirsa, bu padding kart ic boslugunu degistirir. */
   padding: 2em;
 }
 
 .read-the-docs {
+  /* Bu renk, read-the-docs sinifli metinlerin tonunu belirler. */
   color: #888;
 }
