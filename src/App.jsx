@@ -7,17 +7,27 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const timerRef = useRef(null);
 
-  // Bu blokta interval suresini degistirirsen kronometrenin akma hizi ve hassasiyeti degisir.
+// Arka Planda Uyumayan (Gerçek Zamanlı) Saat Motoru
   useEffect(() => {
+    let intervalId;
+
     if (isRunning) {
-      timerRef.current = setInterval(() => {
-        setTime((prevTime) => prevTime + 1000);
+      // Kronometre ilk çalıştığı andaki "gerçek" saati kaydediyoruz
+      let lastTick = Date.now(); 
+
+      intervalId = setInterval(() => {
+        const now = Date.now(); // Şimdiki gerçek saat
+        const delta = now - lastTick; // İki çalışma arasında geçen KESİN süre (fark)
+        lastTick = now; // Bir sonraki tur için şimdiki zamanı kaydet
+        
+        // Artık sabit 1000 eklemiyoruz, aradan ne kadar zaman geçtiyse onu ekliyoruz!
+        setTime((prevTime) => prevTime + delta); 
       }, 1000);
-    } else {
-      clearInterval(timerRef.current);
     }
 
-    return () => clearInterval(timerRef.current);
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
   }, [isRunning]);
 
   // Buradaki hesaplama, ekrandaki saatin saat:dakika:saniye formatinda nasil gosterilecegini belirler.
