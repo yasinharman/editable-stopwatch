@@ -10,6 +10,11 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const timerRef = useRef(null);
 
+  // Zaman degistiginde localStorage'a kaydet
+  useEffect(() => {
+    localStorage.setItem('cronometer-time', time);
+  }, [time]);
+
 // Arka Planda Uyumayan (Gerçek Zamanlı) Saat Motoru
   useEffect(() => {
     let intervalId;
