@@ -58,12 +58,12 @@ function App() {
 
   return (
     // Bu kapsayicidaki class'lar sayfanin genel yerlesimini, arka planini ve yazi stilini degistirir.
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white font-sans">
+    <div className="flex flex-col items-center justify-center h-screen bg-black text-white font-sans">
       {/* Bu baslik metnini veya class'larini degistirirsen sayfanin ust basligi ve stili degisir. */}
-      <h1 className="text-4xl font-bold mb-12 text-blue-400">Yasin Baba The Godfather</h1>
+      <h1 className="text-4xl font-bold mb-12 text-orange-700">Yasin Baba The Godfather</h1>
 
       {/* Buradaki class'lar saat alaninin boyutunu, bosluklarini ve fontunu belirler. */}
-      <div className="flex gap-4 text-7xl font-mono mb-12">
+      <div className="flex gap-4 text-7xl font-mono mb-12 text-white">
         {/* Bu kosul, kronometre dururken input; calisirken salt okunur metin gosterilmesini saglar. */}
         {!isRunning ? (
           <>
@@ -72,7 +72,7 @@ function App() {
               type="number"
               value={hours}
               onChange={(e) => handleInputChange('h', e.target.value)}
-              className="bg-gray-800 w-32 text-center rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="bg-gray-900 text-white w-32 text-center rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
             />
             :
             {/* Bu input dakika degerini degistirir; ayni class yapisi diger kutularla uyumlu gorunumu kontrol eder. */}
@@ -80,7 +80,7 @@ function App() {
               type="number"
               value={minutes}
               onChange={(e) => handleInputChange('m', e.target.value)}
-              className="bg-gray-800 w-32 text-center rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="bg-gray-900 text-white w-32 text-center rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
             />
             :
             {/* Bu input saniye degerini degistirir; burada farkli genislik veya renk deneyebilirsin. */}
@@ -88,12 +88,12 @@ function App() {
               type="number"
               value={seconds}
               onChange={(e) => handleInputChange('s', e.target.value)}
-              className="bg-gray-800 w-32 text-center rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="bg-gray-900 text-white w-32 text-center rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
             />
           </>
         ) : (
           // Bu gorunum yalnizca kronometre calisiyorken ekrana basilan sabit zamani kontrol eder.
-          <span>
+          <span className="text-white">
             {String(hours).padStart(2, '0')}:
             {String(minutes).padStart(2, '0')}:
             {String(seconds).padStart(2, '0')}
