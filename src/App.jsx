@@ -128,6 +128,7 @@ function App() {
           onClick={() => {
             setIsRunning(false);
             setTime(0);
+            localStorage.removeItem('cronometer-time');
           }}
           className="bg-gray-700 hover:bg-gray-600 px-10 py-3 rounded-xl transition-all shadow-lg"
         >
