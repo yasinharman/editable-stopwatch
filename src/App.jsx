@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 
 function App() {
   // Bu baslangic degeri, kronometrenin uygulama acildiginda hangi sureden baslayacagini belirler.
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(() => {
+    const saved = localStorage.getItem('cronometer-time');
+    return saved ? parseInt(saved, 10) : 0;
+  });
   // Bu state'i degistirirsen buton metni ve kronometrenin akisi degisir.
   const [isRunning, setIsRunning] = useState(false);
   const timerRef = useRef(null);
